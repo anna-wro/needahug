@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_normal">32sp</dimen>
+    <dimen name="font_smaller">24dp</dimen>
+    <dimen name="padding_button">24dp</dimen>
+</resources>

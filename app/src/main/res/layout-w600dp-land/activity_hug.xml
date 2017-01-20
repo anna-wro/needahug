@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/scroll"
-            style="@style/scroll">
+            style="@style/scroll"
+    >
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:tools="http://schemas.android.com/tools"
                     android:id="@+id/activity_hug"
                     style="@style/relativeLayout"
-                    tools:context="pm.anna.ineedahug.HugActivity">
+                    tools:context="pm.anna.ineedahug.HugActivity"
+        >
 
         <TextView
             android:id="@+id/hi"
-            style="@style/standardSize"
+            style="@style/hiText"
             android:text="@string/hi_message"
             android:textColor="@color/semi_transparent"
             />
@@ -26,6 +28,7 @@
             android:id="@+id/showHugButton"
             style="@style/Button"
             android:text="@string/button_text"
+
             />
 
     </RelativeLayout>

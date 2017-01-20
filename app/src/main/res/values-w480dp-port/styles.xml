@@ -14,6 +14,10 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="hiText" parent="standardSize">
+        <item name="android:paddingTop">@dimen/padding_smaller</item>
+    </style>
+
     <style name="scroll">
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:layout_width">match_parent</item>
@@ -23,21 +27,28 @@
         <item name="android:scrollbarStyle">insideOverlay</item>
     </style>
 
-    <style name="relativeLayout" parent="standardSize">
+    <style name="relativeLayout">
+        <item name="android:layout_width">450dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/colorAccent</item>
-        <item name="android:paddingBottom">@dimen/activity_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/padding_smaller</item>
         <item name="android:paddingLeft">@dimen/activity_horizontal_padding</item>
         <item name="android:paddingRight">@dimen/activity_horizontal_padding</item>
-        <item name="android:paddingTop">@dimen/activity_vertical_padding</item>
+        <item name="android:paddingTop">@dimen/padding_bigger</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="Button" parent="@style/standardSize">
+        <item name="android:paddingTop">@dimen/padding_button</item>
+        <item name="android:paddingBottom">@dimen/padding_button</item>
+        <item name="android:layout_marginBottom">@dimen/padding_medium</item>
         <item name="android:background">@drawable/button</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:textSize">@dimen/font_smaller</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:maxWidth">300dp</item>
     </style>
 
     <style name="hugText">
@@ -48,8 +59,8 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:paddingBottom">@dimen/padding_smaller</item>
-        <item name="android:paddingTop">@dimen/padding_smaller</item>
+        <item name="android:paddingBottom">@dimen/padding_bigger</item>
+        <item name="android:paddingTop">@dimen/padding_medium</item>
     </style>
 
 </resources>

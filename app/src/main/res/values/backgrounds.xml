@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="colors">
+        <item>#62BFAD</item> // green
+        <item>#D69ECD</item> // pink
+        <item>#C66FB9</item> // violet
+        <item>#9357A9</item> // dark violet
+        <item>#189BA3</item> // green
+        <item>#1C95DB</item> // blue
+        <item>#384D9D</item> // navy blue
+        <item>#FF6B61</item> // orange
+        <item>#EEB200</item> // yellow
+        <item>#D3586D</item> // pink
+        <item>#9C9CDD</item> // subtle violet
+        <item>#6676CC</item> // favourite blue
+        <item>#F4985A</item> // orange
+        <item>#8DD0F4</item> // blue
+        <item>#6BCEB4</item> // mint
+    </string-array>
+</resources>

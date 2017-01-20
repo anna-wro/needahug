@@ -25,10 +25,10 @@
 
     <style name="relativeLayout" parent="standardSize">
         <item name="android:background">@color/colorAccent</item>
-        <item name="android:paddingBottom">@dimen/activity_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/padding_smaller</item>
         <item name="android:paddingLeft">@dimen/activity_horizontal_padding</item>
         <item name="android:paddingRight">@dimen/activity_horizontal_padding</item>
-        <item name="android:paddingTop">@dimen/activity_vertical_padding</item>
+        <item name="android:paddingTop">@dimen/padding_smaller</item>
     </style>
 
     <style name="Button" parent="@style/standardSize">
@@ -48,8 +48,8 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:paddingBottom">@dimen/padding_smaller</item>
-        <item name="android:paddingTop">@dimen/padding_smaller</item>
+        <item name="android:paddingBottom">@dimen/padding_bigger</item>
+        <item name="android:paddingTop">@dimen/padding_medium</item>
     </style>
 
 </resources>
