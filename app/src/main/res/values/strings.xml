@@ -3,4 +3,35 @@
     <string name="rach_11_feb">Always always always make any self-judgement in daylight. We are all a little worse for wear at night-time.</string>
     <string name="hi_message">Hi, Anna!</string>
     <string name="button_text">Want another hug?</string>
+    <string-array name="hugs">
+        <item>Yes you can. Don\'t ya ever don\'t ya ever give in ♡</item>
+        <item>Always always always make any self-judgement in daylight.\nWe are all a little worse for wear at night-time.</item>
+        <item>Hold on!!! You can get through this</item>
+        <item>My most loving, caring, squeezing, encouraging hugs to you my dear, you can do it ♡</item>
+        <item>Sending huge, enormous, irritatingly large hugs!</item>
+        <item>You\'re not a failure you\'re just going through a harsh time. Take care.xoxo</item>
+        <item>You win some, you lose some (: the only time you\'ll always fail is when you never try.
+" + "Gads I sound like a Chinese fortune cookie ((: but, point stands.
+        </item>
+        <item>Remember to be compassionate to everyone, including yourself ♡</item>
+        <item>hold on,\nyou\'ve come so far!</item>
+        <item>you aren\'t stupid. \'Failure isn\'t fatal. Success isn\'t forever. What matters is the strength to get back up again\' :)</item>
+    </string-array>
+    <string-array name="colors">
+        <item>#62BFAD</item> // green
+        <item>#D69ECD</item> // pink
+        <item>#C66FB9</item> // violet
+        <item>#9357A9</item> // dark violet
+        <item>#189BA3</item> // green
+        <item>#1C95DB</item> // blue
+        <item>#384D9D</item> // navy blue
+        <item>#FF6B61</item> // orange
+        <item>#EEB200</item> // yellow
+        <item>#D3586D</item> // pink
+        <item>#9C9CDD</item> // subtle violet
+        <item>#6676CC</item> // favourite blue
+        <item>#F4985A</item> // orange
+        <item>#8DD0F4</item> // blue
+        <item>#6BCEB4</item> // mint
+    </string-array>
 </resources>

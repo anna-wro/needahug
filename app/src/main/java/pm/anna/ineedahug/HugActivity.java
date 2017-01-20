@@ -1,7 +1,5 @@
 package pm.anna.ineedahug;
 
-import android.graphics.Color;
-import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,16 +7,15 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.Random;
 
 public class HugActivity extends AppCompatActivity {
-    private ColorWheel mColorWheel = new ColorWheel();
-    private AllHugs mAllHugs = new AllHugs();
     private TextView mHugTextView;
     private Button mHugButton;
     private RelativeLayout mRelativeLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final ColorWheel mColorWheel = new ColorWheel(this);
+        final AllHugs mAllHugs = new AllHugs(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hug);
 
