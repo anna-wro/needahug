@@ -6,19 +6,21 @@
     <color name="semi_transparent">#AAFFFFFF</color>
     <string-array name="colors">
         <item>#62BFAD</item> // green
-        <item>#D69ECD</item> // pink
-        <item>#C66FB9</item> // violet
-        <item>#9357A9</item> // dark violet
+        <item>#FF8B6CC2</item> // light violet
+        <item>#FF9969B5</item> // purple
+        <item>#FF8357A9</item> // dark violet
         <item>#189BA3</item> // green
-        <item>#1C95DB</item> // blue
-        <item>#384D9D</item> // navy blue
-        <item>#FF6B61</item> // orange
-        <item>#EEB200</item> // yellow
-        <item>#D3586D</item> // pink
-        <item>#9C9CDD</item> // subtle violet
+        <item>#FF3F89C6</item> // blue
+        <item>#FF5C6BC0</item> // indigo
+        <item>#FF8787DB</item> // subtle violet
         <item>#6676CC</item> // favourite blue
-        <item>#F4985A</item> // orange
-        <item>#8DD0F4</item> // blue
-        <item>#6BCEB4</item> // mint
+        <item>#FF498DD1</item> // blue
+        <item>#FF5FB8A0</item> // mint
+        <item>#FF4176C0</item> // blue
+        <item>#FF8757C5</item> // violet
+        <item>#FF677ADA</item> // light violet
+        <item>#5da487</item> // green
+        <item>#FF52A683</item> // green darker
+        <item>#FF6868CB</item> // yes, another violet
     </string-array>
 </resources>
