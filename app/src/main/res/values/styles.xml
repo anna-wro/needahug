@@ -51,5 +51,7 @@
         <item name="android:paddingBottom">@dimen/padding_smaller</item>
         <item name="android:paddingTop">@dimen/padding_smaller</item>
     </style>
+<style name="welcomeText">
 
+</style>
 </resources>

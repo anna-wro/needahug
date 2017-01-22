@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/scroll"
+            style="@style/scroll">
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    style="@style/relativeLayout"
+    tools:context="pm.anna.needahug.StartActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        style="@style/welcomeText"
+        android:text="@string/app_name"
+        android:id="@+id/appName"
+        android:textSize="@dimen/font_big"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+       android:paddingBottom="@dimen/padding_smaller"
+        android:paddingTop="@dimen/activity_vertical_padding"
+
+        />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:text="You're not alone"
+    android:layout_below="@id/appName"
+    android:paddingBottom="@dimen/padding_medium"
+    />
+
+    <Button
+        android:id="@+id/startButton"
+        style="@style/Button"
+        android:text="* hugs *"
+        android:onClick="showHugs"
+       />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:hint="What's your name?"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/font_medium"
+        android:layout_above="@+id/startButton"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/nameEditText"
+        android:maxLength="30"
+    android:layout_marginBottom="@dimen/padding_smaller"
+        />
+
+
+</RelativeLayout>
+    </ScrollView>
