@@ -9,7 +9,7 @@
     style="@style/relativeLayout"
     tools:context="pm.anna.needahug.StartActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
     <TextView
         style="@style/welcomeText"
@@ -49,6 +49,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/nameEditText"
         android:maxLength="30"
+        android:background="@android:color/transparent"
     android:layout_marginBottom="@dimen/padding_smaller"
         />
 

@@ -27,14 +27,14 @@ public class StartActivity extends BaseActivity {
                 String name = mNameField.getText().toString();
                 // Testing if it works
                 //  Toast.makeText(StartActivity.this, name, Toast.LENGTH_LONG).show();
-                showHugs();
+                showHugs(name);
             }
         });
     }
-    private void showHugs(){
+    private void showHugs(String name){
         Intent intent = new Intent(this, HugActivity.class);
+        intent.putExtra(getString(R.string.key_name), name);
+
         startActivity(intent);
-
-
     }
 }

@@ -7,19 +7,26 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
+import android.content.Intent;
 
 public class HugActivity extends BaseActivity {
     private TextView mHugTextView;
     private Button mHugButton;
     private RelativeLayout mRelativeLayout;
     private ScrollView mScrollView;
+    private TextView mHiText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final ColorWheel mColorWheel = new ColorWheel(this);
         final AllHugs mAllHugs = new AllHugs(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hug);
+
+        Intent intent = getIntent();
+        String name = intent.getStringExtra(getString(R.string.key_name));
+
+        mHiText = (TextView) findViewById(R.id.hi);
+        mHiText.setText("Hi " + name + "!");
 
         // assign the Views from the layout file to the corresponding variables
         mHugTextView = (TextView) findViewById(R.id.hugTextView);
