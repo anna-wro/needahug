@@ -45,6 +45,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:textSize="@dimen/font_medium"
+
         android:layout_above="@+id/startButton"
         android:layout_centerHorizontal="true"
         android:id="@+id/nameEditText"

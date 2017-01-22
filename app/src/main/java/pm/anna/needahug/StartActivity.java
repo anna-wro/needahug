@@ -1,7 +1,9 @@
 package pm.anna.needahug;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,7 +11,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class StartActivity extends BaseActivity {
-
+    private static final String PREFS_FILE = "pm.anna.needahug.preferences";
+    private static final String KEY_EDITTEXT = "key_edittext";
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private EditText mEditText;
     private EditText mNameField;
     private Button mStartButton;
 
@@ -17,6 +23,13 @@ public class StartActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        mEditText = (EditText)findViewById(R.id.nameEditText);
+        mSharedPreferences = getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
+        mEditor = mSharedPreferences.edit();
+
+        String editTextString = mSharedPreferences.getString(KEY_EDITTEXT, "");
+        mEditText.setText(editTextString);
+
 
         mNameField = (EditText) findViewById(R.id.nameEditText);
         mStartButton = (Button) findViewById(R.id.startButton);
@@ -37,4 +50,13 @@ public class StartActivity extends BaseActivity {
 
         startActivity(intent);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        mEditor.putString(KEY_EDITTEXT, mEditText.getText().toString());
+        mEditor.apply();
+    }
+
 }

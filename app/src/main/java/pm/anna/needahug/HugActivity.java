@@ -1,9 +1,11 @@
 package pm.anna.needahug;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -15,18 +17,23 @@ public class HugActivity extends BaseActivity {
     private RelativeLayout mRelativeLayout;
     private ScrollView mScrollView;
     private TextView mHiText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         final ColorWheel mColorWheel = new ColorWheel(this);
         final AllHugs mAllHugs = new AllHugs(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hug);
 
+        // Getting data from an Intent
         Intent intent = getIntent();
         String name = intent.getStringExtra(getString(R.string.key_name));
-
+        if (name.isEmpty()) {
+            name = "Anna";
+        }
         mHiText = (TextView) findViewById(R.id.hi);
-        mHiText.setText("Hi " + name + "!");
+        mHiText.setText("Hi, " + name + "!");
 
         // assign the Views from the layout file to the corresponding variables
         mHugTextView = (TextView) findViewById(R.id.hugTextView);
@@ -47,4 +54,6 @@ public class HugActivity extends BaseActivity {
         };
         mHugButton.setOnClickListener(listener);
     }
+
+
 }
