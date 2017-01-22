@@ -24,9 +24,11 @@ public class HugActivity extends BaseActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra(getString(R.string.key_name));
-
+        if (name.isEmpty()){
+            name = "Anna";
+        }
         mHiText = (TextView) findViewById(R.id.hi);
-        mHiText.setText("Hi " + name + "!");
+        mHiText.setText("Hi, " + name + "!");
 
         // assign the Views from the layout file to the corresponding variables
         mHugTextView = (TextView) findViewById(R.id.hugTextView);
