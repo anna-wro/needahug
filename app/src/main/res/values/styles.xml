@@ -40,7 +40,7 @@
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
-    <style name="hugText">
+    <style name="hugText" parent="wrap">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
@@ -51,7 +51,22 @@
         <item name="android:paddingBottom">@dimen/padding_smaller</item>
         <item name="android:paddingTop">@dimen/padding_smaller</item>
     </style>
-<style name="welcomeText">
 
-</style>
+    <style name="wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="welcomeText" parent="wrap">
+        <item name="android:textSize">@dimen/font_big</item>
+        <item name="android:paddingBottom">@dimen/padding_smaller</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_padding</item>
+    </style>
+
+    <style name="textField" parent="wrap">
+        <item name="android:layout_marginBottom">@dimen/padding_smaller</item>
+        <item name="android:textSize">@dimen/font_medium</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

@@ -2,58 +2,44 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/scroll"
             style="@style/scroll">
+
     <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    style="@style/relativeLayout"
-    tools:context="pm.anna.needahug.StartActivity"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-    <TextView
-        style="@style/welcomeText"
-        android:text="@string/app_name"
-        android:id="@+id/appName"
-        android:textSize="@dimen/font_big"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-       android:paddingBottom="@dimen/padding_smaller"
-        android:paddingTop="@dimen/activity_vertical_padding"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        style="@style/relativeLayout"
+        tools:context="pm.anna.needahug.StartActivity"
+        >
 
-        />
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:text="You're not alone"
-    android:layout_below="@id/appName"
-    android:paddingBottom="@dimen/padding_medium"
-    />
+        <TextView
+            android:id="@+id/appName"
+            style="@style/welcomeText"
+            android:text="@string/app_name"
+            />
 
-    <Button
-        android:id="@+id/startButton"
-        style="@style/Button"
-        android:text="* hugs *"
-        android:onClick="showHugs"
-       />
+        <TextView
+            style="@style/wrap"
+            android:layout_below="@id/appName"
+            android:paddingBottom="@dimen/padding_medium"
+            android:text="@string/notalone"
+            />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:hint="What's your name?"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:textSize="@dimen/font_medium"
+        <Button
+            android:id="@+id/startButton"
+            style="@style/Button"
+            android:onClick="showHugs"
+            android:text="@string/button_hugs"
+            />
 
-        android:layout_above="@+id/startButton"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/nameEditText"
-        android:maxLength="30"
-        android:background="@android:color/transparent"
-    android:layout_marginBottom="@dimen/padding_smaller"
-        />
+        <EditText
+            android:id="@+id/nameEditText"
+            style="@style/textField"
+            android:layout_above="@+id/startButton"
+            android:hint="@string/question"
+            android:inputType="textPersonName"
+            android:maxLength="30"
+            />
 
 
-</RelativeLayout>
-    </ScrollView>
+    </RelativeLayout>
+</ScrollView>
