@@ -8,7 +8,7 @@
                     xmlns:tools="http://schemas.android.com/tools"
                     android:id="@+id/activity_hug"
                     style="@style/relativeLayout"
-                    tools:context="pm.anna.ineedahug.HugActivity"
+                    tools:context="pm.anna.needahug.HugActivity"
         >
 
         <TextView

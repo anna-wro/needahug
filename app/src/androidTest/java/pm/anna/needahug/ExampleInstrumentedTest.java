@@ -1,4 +1,4 @@
-package pm.anna.ineedahug;
+package pm.anna.needahug;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

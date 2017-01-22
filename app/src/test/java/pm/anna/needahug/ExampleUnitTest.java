@@ -1,4 +1,4 @@
-package pm.anna.ineedahug;
+package pm.anna.needahug;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package pm.anna.ineedahug;
+package pm.anna.needahug;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 
-public class HugActivity extends AppCompatActivity {
+public class HugActivity extends BaseActivity {
     private TextView mHugTextView;
     private Button mHugButton;
     private RelativeLayout mRelativeLayout;
