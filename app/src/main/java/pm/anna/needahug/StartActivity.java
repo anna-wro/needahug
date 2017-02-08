@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class StartActivity extends BaseActivity {
     private static final String PREFS_FILE = "pm.anna.needahug.preferences";
     private static final String KEY_EDITTEXT = "key_edittext";
+
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private EditText mEditText;
@@ -26,6 +27,14 @@ public class StartActivity extends BaseActivity {
         mEditText = (EditText)findViewById(R.id.nameEditText);
         mSharedPreferences = getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
         mEditor = mSharedPreferences.edit();
+        Boolean skipWelcome = mSharedPreferences.getBoolean("SKIP_WELCOME", false);
+
+        if (skipWelcome) {
+            String name = mSharedPreferences.getString(KEY_EDITTEXT, "");
+            Intent intent = new Intent(this, HugActivity.class);
+            intent.putExtra(getString(R.string.key_name), name);
+            startActivity(intent);
+        }
 
         String editTextString = mSharedPreferences.getString(KEY_EDITTEXT, "");
         mEditText.setText(editTextString);
@@ -56,6 +65,7 @@ public class StartActivity extends BaseActivity {
         super.onPause();
 
         mEditor.putString(KEY_EDITTEXT, mEditText.getText().toString());
+        mEditor.putBoolean("SKIP_WELCOME", true);
         mEditor.apply();
     }
 

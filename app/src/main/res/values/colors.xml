@@ -13,15 +13,16 @@
         <item>#FF3F89C6</item> // blue
         <item>#FF5C6BC0</item> // indigo
         <item>#FF8787DB</item> // subtle violet
+        <item>#67c29d</item> // green
         <item>#6676CC</item> // favourite blue
         <item>#FF498DD1</item> // blue
         <item>#FF5FB8A0</item> // mint
         <item>#FF4176C0</item> // blue
+        <item>#72bd9e</item> // green
         <item>#FF8757C5</item> // violet
         <item>#FF677ADA</item> // light violet
         <item>#5da487</item> // green
         <item>#FF52A683</item> // green darker
         <item>#FF6868CB</item> // yes, another violet
 </string-array>
-
 </resources>
