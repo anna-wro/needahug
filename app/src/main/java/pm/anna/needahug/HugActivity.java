@@ -1,15 +1,12 @@
 package pm.anna.needahug;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.content.Intent;
 
 public class HugActivity extends BaseActivity {
     private TextView mHugTextView;
@@ -53,7 +50,16 @@ public class HugActivity extends BaseActivity {
             }
         };
         mHugButton.setOnClickListener(listener);
+
     }
 
+    public void SHARE(View view) {
+        String shareHug = mHugTextView.getText().toString();
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "\n\n");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareHug);
+        startActivity(Intent.createChooser(sharingIntent,  getResources().getString(R.string.share)));
 
+    }
 }
