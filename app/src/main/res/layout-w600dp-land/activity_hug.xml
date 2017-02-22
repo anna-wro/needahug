@@ -30,6 +30,8 @@
             android:text="@string/button_text"
 
             />
-
+        <ImageButton
+            style="@style/share"
+            android:onClick="SHARE"/>
     </RelativeLayout>
 </ScrollView>
