@@ -57,7 +57,6 @@ public class HugActivity extends BaseActivity {
         String shareHug = mHugTextView.getText().toString();
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "\n\n");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareHug);
         startActivity(Intent.createChooser(sharingIntent,  getResources().getString(R.string.share)));
 
