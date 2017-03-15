@@ -1,14 +1,14 @@
 package pm.anna.needahug;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class StartActivity extends BaseActivity {
     private static final String PREFS_FILE = "pm.anna.needahug.preferences";
@@ -41,14 +41,29 @@ public class StartActivity extends BaseActivity {
 
 
         mNameField = (EditText) findViewById(R.id.nameEditText);
+        mNameField.setFilters(new InputFilter[] {
+                new InputFilter() {
+                    @Override
+                    public CharSequence filter(CharSequence cs, int start,
+                                               int end, Spanned spanned, int dStart, int dEnd) {
+                        if(cs.equals("")){ // for backspace
+                            return cs;
+                        }
+                        if(cs.toString().matches("[a-zA-Z ]+")){
+                            return cs;
+                        }
+                        return "";
+                    }
+                }
+        });
+
         mStartButton = (Button) findViewById(R.id.startButton);
 
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = mNameField.getText().toString();
-                // Testing if it works
-                //  Toast.makeText(StartActivity.this, name, Toast.LENGTH_LONG).show();
+                name = name.replaceAll("\\s+$", "");
                 showHugs(name);
             }
         });
