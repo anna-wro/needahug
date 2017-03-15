@@ -1,8 +1,13 @@
 package pm.anna.needahug;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -16,6 +21,8 @@ public class HugActivity extends BaseActivity {
     private ScrollView mScrollView;
     private TextView mHiText;
     private Toolbar mToolbar;
+    private ShareActionProvider mShareActionProvider;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,15 +64,33 @@ public class HugActivity extends BaseActivity {
         };
 
         mHugButton.setOnClickListener(listener);
-
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        MenuItem item = menu.findItem(R.id.shareButton);
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+        this.getWindow().setBackgroundDrawable(new ColorDrawable(255));
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-    public void SHARE(View view) {
-        String shareHug = mHugTextView.getText().toString();
-        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareHug);
-        startActivity(Intent.createChooser(sharingIntent,  getResources().getString(R.string.share)));
+        switch (item.getItemId()) {
+            case R.id.shareButton:
+                String shareHug = mHugTextView.getText().toString();
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareHug);
+                startActivity(Intent.createChooser(sharingIntent,  getResources().getString(R.string.share)));
+                return true;
 
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

@@ -10,6 +10,13 @@
         <item name="android:textSize">@dimen/font_normal</item>
     </style>
 
+    <style name="menu">
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/font_smaller</item>
+        <item name="android:shadowColor">@android:color/white</item>
+    </style>
+
     <style name="standardSize">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
