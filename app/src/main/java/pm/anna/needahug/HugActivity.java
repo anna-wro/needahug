@@ -32,15 +32,16 @@ public class HugActivity extends BaseActivity {
             name = "Anna";
         }
         String hiText = "Hi, " + name + "!";
-
-
+        mHiText = (TextView) findViewById(R.id.hi);
+        mHiText.setText(hiText);
         // assign the Views from the layout file to the corresponding variables
         mHugTextView = (TextView) findViewById(R.id.hugTextView);
+
         mHugButton = (Button) findViewById(R.id.showHugButton);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.activity_hug);
         mScrollView = (ScrollView) findViewById(R.id.scroll);
         mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        mToolbar.setTitle(hiText);
+        mToolbar.setTitle("");
         setSupportActionBar(mToolbar);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override

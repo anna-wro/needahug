@@ -78,8 +78,7 @@ public class StartActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
-        mEditor.putString(KEY_EDITTEXT, mEditText.getText().toString());
+        mEditor.putString(KEY_EDITTEXT, mEditText.getText().toString().replaceAll("\\s+$", ""));
         mEditor.putBoolean("SKIP_WELCOME", true);
         mEditor.apply();
     }
