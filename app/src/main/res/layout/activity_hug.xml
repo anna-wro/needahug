@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/scroll"
             style="@style/scroll">
 
@@ -8,13 +9,16 @@
                     android:id="@+id/activity_hug"
                     style="@style/relativeLayout"
                     tools:context="pm.anna.needahug.HugActivity">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/transparent"
+            android:elevation="0dp"
+            android:titleTextColor="@color/semi_transparent"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-        <TextView
-            android:id="@+id/hi"
-            style="@style/standardSize"
-            android:text="@string/hi_message"
-            android:textColor="@color/semi_transparent"
-            />
 
         <TextView
             android:id="@+id/hugTextView"

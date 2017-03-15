@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">@android:color/black</color>
     <color name="colorAccent">#62BFAD</color>
     <color name="semi_transparent">#AAFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
     <string-array name="colors">
         <item>#62BFAD</item> // green
         <item>#FF8B6CC2</item> // light violet

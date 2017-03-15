@@ -6,8 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/font_normal</item>
     </style>
+
 
     <style name="standardSize">
         <item name="android:layout_width">match_parent</item>

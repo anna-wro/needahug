@@ -2,6 +2,7 @@ package pm.anna.needahug;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -14,6 +15,7 @@ public class HugActivity extends BaseActivity {
     private RelativeLayout mRelativeLayout;
     private ScrollView mScrollView;
     private TextView mHiText;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +31,17 @@ public class HugActivity extends BaseActivity {
         if (name.isEmpty()) {
             name = "Anna";
         }
-        mHiText = (TextView) findViewById(R.id.hi);
-        mHiText.setText("Hi, " + name + "!");
+        String hiText = "Hi, " + name + "!";
+
 
         // assign the Views from the layout file to the corresponding variables
         mHugTextView = (TextView) findViewById(R.id.hugTextView);
         mHugButton = (Button) findViewById(R.id.showHugButton);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.activity_hug);
         mScrollView = (ScrollView) findViewById(R.id.scroll);
+        mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        mToolbar.setTitle(hiText);
+        setSupportActionBar(mToolbar);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +54,7 @@ public class HugActivity extends BaseActivity {
 
             }
         };
+
         mHugButton.setOnClickListener(listener);
 
     }
