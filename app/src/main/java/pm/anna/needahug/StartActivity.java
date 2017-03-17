@@ -49,7 +49,7 @@ public class StartActivity extends BaseActivity {
                         if(cs.equals("")){ // for backspace
                             return cs;
                         }
-                        if(cs.toString().matches("[a-zA-Z ]+")){
+                        if(cs.toString().matches("[a-zA-Z-]+")){
                             return cs;
                         }
                         return "";
