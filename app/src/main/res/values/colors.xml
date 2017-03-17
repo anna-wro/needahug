@@ -4,7 +4,10 @@
     <color name="colorPrimaryDark">@android:color/black</color>
     <color name="colorAccent">#62BFAD</color>
     <color name="semi_transparent">#AAFFFFFF</color>
+    <color name="dot_transparent">#66FFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="violet">#FF8B6CC2</color>
+    <color name="dot_click">#25000000</color>
     <string-array name="colors">
         <item>#62BFAD</item> // green
         <item>#FF8B6CC2</item> // light violet

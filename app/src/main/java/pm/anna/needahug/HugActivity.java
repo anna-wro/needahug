@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.Util;
@@ -50,16 +51,44 @@ public class HugActivity extends BaseActivity {
         mRelativeLayout = (RelativeLayout) findViewById(R.id.activity_hug);
         mScrollView = (ScrollView) findViewById(R.id.scroll);
         BoomMenuButton bmb = (BoomMenuButton) findViewById(R.id.bmb);
-        for (int i = 0; i < bmb.getButtonPlaceEnum().buttonNumber(); i++) {
-            bmb.addBuilder(new SimpleCircleButton.Builder()
-                    .normalImageRes(R.drawable.ic_share_white_24dp)
-                    .imageRect(new Rect(8, 12, 42,42))
-                    .shadowEffect(false)
-                    .rippleEffect(true)
-                    .normalColorRes(R.color.colorPrimary)
-                    .buttonRadius(Util.dp2px(18))
-                    .pieceColorRes(R.color.semi_transparent));
-        }
+        bmb.addBuilder(new SimpleCircleButton.Builder()
+                .normalImageRes(R.drawable.ic_share_white_48dp)
+                .imageRect(new Rect(8, 12, 42,42))
+                .shadowEffect(false)
+                .rippleEffect(true)
+                .normalColorRes(R.color.dot_transparent)
+                .highlightedColorRes(R.color.dot_click)
+                .unableColorRes(R.color.dot_transparent)
+                .buttonRadius(Util.dp2px(18))
+                .pieceColorRes(R.color.semi_transparent)
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        SHARE();
+                    }
+                })
+                .unable(true)
+        );
+        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_add_white_48dp)
+                .imageRect(new Rect(6, 6, 48,48))
+                .shadowEffect(false)
+                .rippleEffect(true)
+                .normalColorRes(R.color.dot_transparent)
+                .unableColorRes(R.color.dot_transparent)
+                .highlightedColorRes(R.color.dot_click)
+                .buttonRadius(Util.dp2px(18))
+                .pieceColorRes(R.color.semi_transparent));
+        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_filter_vintage_white_48dp)
+                .imageRect(new Rect(12, 12, 42,42))
+                .shadowEffect(false)
+                .rippleEffect(true)
+                .normalColorRes(R.color.dot_transparent)
+                .unableColorRes(R.color.dot_transparent)
+                .highlightedColorRes(R.color.dot_click)
+                .buttonRadius(Util.dp2px(18))
+                .pieceColorRes(R.color.semi_transparent)
+                .unable(true));
+
 
         mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         mToolbar.setTitle("");
@@ -85,23 +114,12 @@ public class HugActivity extends BaseActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        switch (item.getItemId()) {
-//            case R.id.shareButton:
-//                String shareHug = mHugTextView.getText().toString();
-//                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-//                sharingIntent.setType("text/plain");
-//                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareHug);
-//                startActivity(Intent.createChooser(sharingIntent,  getResources().getString(R.string.share)));
-//                return true;
-//
-//            default:
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//    }
+    private void SHARE(){
+        String shareHug = mHugTextView.getText().toString();
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareHug);
+        startActivity(Intent.createChooser(sharingIntent,  getResources().getString(R.string.share)));
+    }
+
 }
