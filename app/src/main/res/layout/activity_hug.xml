@@ -9,26 +9,55 @@
                     android:id="@+id/activity_hug"
                     style="@style/relativeLayout"
                     tools:context="pm.anna.needahug.HugActivity">
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/transparent"
-            android:elevation="0dp"
+            android:elevation="8dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             android:title=""
             android:titleTextColor="@color/semi_transparent"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/menu">
-            <TextView
-                android:id="@+id/hi"
-                style="@style/hiText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hi_message"
-                android:textColor="@color/semi_transparent"
-                />
-        </android.support.v7.widget.Toolbar>
+            app:popupTheme="@style/menu"
+            >
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/hi"
+                    style="@style/hiText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hi_message"
+                    android:textColor="@color/semi_transparent"
+                    />
+
+                <com.nightonke.boommenu.BoomMenuButton
+                    android:id="@+id/bmb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginRight="-8dp"
+                    app:bmb_buttonEnum="simpleCircle"
+                    app:bmb_buttonPlaceAlignmentEnum="buttonPlaceAlignment_tr"
+                    app:bmb_buttonPlaceEnum="buttonPlace_sc_3_2"
+                    app:bmb_dimColor="#55000000"
+                    app:bmb_highlightedColor="@color/transparent"
+                    app:bmb_normalColor="@color/transparent"
+                    app:bmb_pieceHorizontalMargin="5dp"
+                    app:bmb_piecePlaceEnum="piecePlace_dot_3_4"
+                    app:bmb_shadowEffect="false"
+                    app:bmb_unableColor="@color/transparent"
+
+                    />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
 
         <TextView
             android:id="@+id/hugTextView"

@@ -23,6 +23,7 @@
             android:name=".data.HugsProvider"
             android:authorities="pm.anna.needahug"
             android:exported="false" />
+
     </application>
 
 </manifest>

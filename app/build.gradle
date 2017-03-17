@@ -28,4 +28,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile 'com.android.support:design:25.1.0'
+    compile 'com.nightonke:boommenu:2.0.7'
 }
+
