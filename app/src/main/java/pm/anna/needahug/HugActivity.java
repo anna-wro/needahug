@@ -5,7 +5,6 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -67,7 +66,6 @@ public class HugActivity extends BaseActivity {
                         SHARE();
                     }
                 })
-                .unable(true)
         );
         bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_add_white_48dp)
                 .imageRect(new Rect(6, 6, 48,48))
@@ -77,7 +75,8 @@ public class HugActivity extends BaseActivity {
                 .unableColorRes(R.color.dot_transparent)
                 .highlightedColorRes(R.color.dot_click)
                 .buttonRadius(Util.dp2px(18))
-                .pieceColorRes(R.color.semi_transparent));
+                .pieceColorRes(R.color.semi_transparent)
+                .unable(true));
         bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_filter_vintage_white_48dp)
                 .imageRect(new Rect(12, 12, 42,42))
                 .shadowEffect(false)
@@ -108,12 +107,7 @@ public class HugActivity extends BaseActivity {
 
         mHugButton.setOnClickListener(listener);
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+
     private void SHARE(){
         String shareHug = mHugTextView.getText().toString();
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);

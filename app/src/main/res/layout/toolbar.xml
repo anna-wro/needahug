@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    android:id="@+id/my_toolbar"
+    style="@style/toolbar"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        style="@style/standardSize"
+        >
+
+        <TextView
+            android:id="@+id/hi"
+            style="@style/hiText"
+            android:text="@string/hi_message"
+            />
+
+        <com.nightonke.boommenu.BoomMenuButton
+            style="@style/boom"
+            android:id="@+id/bmb"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>

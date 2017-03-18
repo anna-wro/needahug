@@ -89,4 +89,41 @@
         <item name="android:paddingBottom">@dimen/padding_smaller</item>
         <item name="android:layout_marginBottom">@dimen/padding_smaller</item>
     </style>
+
+    <style name="hiText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/semi_transparent</item>
+    </style>
+
+    <style name="toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:elevation">@dimen/elevation</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="android:title"></item>
+        <item name="android:titleTextColor">@color/semi_transparent</item>
+        <item name="popupTheme">@style/menu</item>
+    </style>
+
+    <style name="boom">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginTop">@dimen/boom_top</item>
+        <item name="bmb_buttonEnum">simpleCircle</item>
+        <item name="bmb_boomEnum">boomLine</item>
+        <item name="bmb_buttonPlaceAlignmentEnum">buttonPlaceAlignment_tr</item>
+        <item name="bmb_buttonPlaceEnum">buttonPlace_sc_3_2</item>
+        <item name="bmb_buttonRightMargin">@dimen/padding_normal</item>
+        <item name="bmb_buttonTopMargin">@dimen/padding_boom</item>
+        <item name="bmb_buttonVerticalMargin">@dimen/boom_vertical</item>
+        <item name="bmb_dimColor">@color/boom_dim</item>
+        <item name="bmb_highlightedColor">@color/transparent</item>
+        <item name="bmb_normalColor">@color/transparent</item>
+        <item name="bmb_piecePlaceEnum">piecePlace_dot_3_4</item>
+        <item name="bmb_shadowEffect">false</item>
+        <item name="bmb_unableColor">@color/transparent</item>
+    </style>
 </resources>
