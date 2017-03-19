@@ -131,7 +131,7 @@ public class HugActivity extends BaseActivity implements LoaderManager.LoaderCal
         startActivity(Intent.createChooser(sharingIntent,  getResources().getString(R.string.share)));
     }
 
-    public void insertHug(View v) {
+    public void insertHug() {
         String hug = "";
         ContentValues values = new ContentValues();
         values.put(HugsContract.HugsEntry.COLUMN_HUG, hug);
