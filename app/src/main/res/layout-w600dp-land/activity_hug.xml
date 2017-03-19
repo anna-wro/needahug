@@ -10,13 +10,7 @@
                     style="@style/relativeLayout"
                     tools:context="pm.anna.needahug.HugActivity"
         >
-
-        <TextView
-            android:id="@+id/hi"
-            style="@style/hiText"
-            android:text="@string/hi_message"
-            android:textColor="@color/semi_transparent"
-            />
+        <include layout="@layout/toolbar"></include>
 
         <TextView
             android:id="@+id/hugTextView"
@@ -30,8 +24,6 @@
             android:text="@string/button_text"
 
             />
-        <ImageButton
-            style="@style/share"
-            android:onClick="SHARE"/>
+
     </RelativeLayout>
 </ScrollView>
