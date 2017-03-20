@@ -3,22 +3,48 @@
             android:id="@+id/scroll"
             style="@style/scroll">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        style="@style/toolbar"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        style="@style/relativeLayout">
 
-        <RelativeLayout
-            style="@style/standardSize"
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/transparent"
+            android:alpha=".6"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_chevron_left_white_48dp"
+
+            />
+
+        <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/my_toolbar"
+            style="@style/toolbar"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/backButton"
             >
 
-            <TextView
-                android:id="@+id/hi"
-                style="@style/hiText"
-                android:text="@string/hi_message"
-                />
+            <RelativeLayout
+                style="@style/standardSize"
+                >
 
+                <TextView
+                    android:id="@+id/hi"
+                    style="@style/hiText"
+                    android:text="@string/add_message"
+                    />
 
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
+                <com.nightonke.boommenu.BoomMenuButton
+                    android:id="@+id/boom_edit"
+                    style="@style/boom"/>
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
 </ScrollView>

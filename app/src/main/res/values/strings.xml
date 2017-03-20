@@ -13,6 +13,7 @@
     <string name="delete_dialog_msg">Delete last hug?</string>
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
+    <string name="add_message">Add a hug!</string>
     <string-array name="newHug">
         <item>Yay!</item>
         <item>You\'re amazing! ♡</item>

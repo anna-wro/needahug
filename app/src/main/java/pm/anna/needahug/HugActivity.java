@@ -39,7 +39,7 @@ public class HugActivity extends BaseActivity implements LoaderManager.LoaderCal
     private TextView mHiText;
     private Toolbar mToolbar;
     String mNewMessages[];
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
