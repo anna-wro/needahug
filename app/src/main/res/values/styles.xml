@@ -109,6 +109,21 @@
         <item name="popupTheme">@style/menu</item>
     </style>
 
+    <style name="toolbar.edit">
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_toRightOf">@id/backButton</item>
+    </style>
+
+    <style name="backButton">
+        <item name="android:layout_width">@dimen/button_back</item>
+        <item name="android:layout_height">@dimen/button_back</item>
+        <item name="android:layout_marginTop">@dimen/button_margin</item>
+        <item name="android:alpha">.6</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/ic_chevron_left_white_48dp</item>
+    </style>
+
     <style name="boom">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -129,6 +144,22 @@
         <item name="bmb_unableColor">@color/transparent</item>
     </style>
 
+    <style name="newHugText" parent="standardSize">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_marginTop">@dimen/padding_bigger</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:gravity">top|left</item>
+        <item name="android:inputType">textMultiLine|textCapSentences</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing</item>
+        <item name="android:lines">3</item>
+        <item name="android:maxLines">10</item>
+        <item name="android:padding">@dimen/padding_tiny</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
     <style name="editButton" parent="standardSize">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:background">@color/transparent</item>
@@ -136,4 +167,17 @@
         <item name="android:textSize">@dimen/font_smaller</item>
         <item name="android:textColor">@color/semi_transparent</item>
     </style>
+
+    <style name="editButton.save">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_below">@id/newHugText</item>
+    </style>
+
+    <style name="editButton.cancel">
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:layout_below">@id/newHugText</item>
+        <item name="android:layout_toLeftOf">@id/saveHugButton</item>
+    </style>
+
 </resources>

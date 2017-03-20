@@ -9,23 +9,13 @@
 
         <ImageButton
             android:id="@+id/backButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="8dp"
-            android:alpha=".6"
-            android:background="@color/transparent"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_chevron_left_white_48dp"
-
+            style="@style/backButton"
             />
 
         <android.support.v7.widget.Toolbar
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/my_toolbar"
-            style="@style/toolbar"
-
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/backButton"
+            style="@style/toolbar.edit"
             >
 
             <RelativeLayout
@@ -44,37 +34,18 @@
 
         <EditText
             android:id="@+id/newHugText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/padding_bigger"
-            android:background="@drawable/button"
-            android:gravity="top|left"
+            style="@style/newHugText"
             android:hint="@string/hug_hint"
-            android:inputType="textMultiLine|textCapSentences"
-            android:lineSpacingExtra="5dp"
-            android:lines="3"
-
-            android:maxLines="10"
-            android:padding="@dimen/padding_tiny"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
-            android:textSize="@dimen/font_medium"/>
+          />
 
         <Button
             android:id="@+id/saveHugButton"
-            style="@style/editButton"
-            android:gravity="center"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/newHugText"
+            style="@style/editButton.save"
             android:text="@string/save"/>
+
         <Button
             android:id="@+id/cancelHugButton"
-            style="@style/editButton"
-            android:gravity="center_vertical|right"
-            android:layout_below="@id/newHugText"
-            android:layout_toLeftOf="@id/saveHugButton"
+            style="@style/editButton.cancel"
             android:text="@string/cancel"
             />
 
