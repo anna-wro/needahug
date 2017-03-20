@@ -17,7 +17,7 @@ public class HugsDbHelper extends SQLiteOpenHelper {
     public static final String LOG_TAG = HugsDbHelper.class.getSimpleName();
 
     private static final String DATABASE_NAME = "hugs.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
     private final String[] mHugs;
     private static final String INSERT_HUGS = "INSERT INTO hugs (hug) VALUES (?)";
 
@@ -32,7 +32,8 @@ public class HugsDbHelper extends SQLiteOpenHelper {
 
         String SQL_CREATE_HUGS_TABLE = "CREATE TABLE " + HugsEntry.TABLE_NAME + " ("
                 + HugsEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + HugsEntry.COLUMN_HUG + " TEXT NOT NULL);";
+                + HugsEntry.COLUMN_HUG + " TEXT NOT NULL"
+                + HugsEntry.COLUMN_FAV + "INTEGER DEFAULT 0);";
         db.execSQL(SQL_CREATE_HUGS_TABLE);
 
         SQLiteStatement statement = db.compileStatement(INSERT_HUGS);

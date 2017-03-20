@@ -11,19 +11,23 @@
             android:name=".StartActivity"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".HugActivity"
-                  android:label="@string/hi_message">
-
+        <activity
+            android:name=".HugActivity"
+            android:label="@string/hi_message">
         </activity>
+
         <provider
             android:name=".data.HugsProvider"
             android:authorities="pm.anna.needahug"
-            android:exported="false" />
+            android:exported="false"/>
 
+        <activity android:name=".EditActivity">
+        </activity>
     </application>
 
 </manifest>

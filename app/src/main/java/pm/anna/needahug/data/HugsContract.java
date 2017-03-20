@@ -28,5 +28,6 @@ public final class HugsContract {
         public static final String TABLE_NAME = "hugs";
         public static final String _ID = BaseColumns._ID;
         public static final String COLUMN_HUG = "hug";
+        public static final String COLUMN_FAV = "favourite";
     }
 }
