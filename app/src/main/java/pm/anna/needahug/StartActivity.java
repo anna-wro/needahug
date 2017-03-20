@@ -24,7 +24,7 @@ public class StartActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        mEditText = (EditText)findViewById(R.id.nameEditText);
+        mEditText = (EditText) findViewById(R.id.nameEditText);
         mSharedPreferences = getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
         mEditor = mSharedPreferences.edit();
         Boolean skipWelcome = mSharedPreferences.getBoolean("SKIP_WELCOME", false);
@@ -41,15 +41,15 @@ public class StartActivity extends BaseActivity {
 
 
         mNameField = (EditText) findViewById(R.id.nameEditText);
-        mNameField.setFilters(new InputFilter[] {
+        mNameField.setFilters(new InputFilter[]{
                 new InputFilter() {
                     @Override
                     public CharSequence filter(CharSequence cs, int start,
                                                int end, Spanned spanned, int dStart, int dEnd) {
-                        if(cs.equals("")){ // for backspace
+                        if (cs.equals("")) { // for backspace
                             return cs;
                         }
-                        if(cs.toString().matches("[a-zA-Z-]+")){
+                        if (cs.toString().matches("[a-zA-Z-]+")) {
                             return cs;
                         }
                         return "";
@@ -68,11 +68,13 @@ public class StartActivity extends BaseActivity {
             }
         });
     }
-    private void showHugs(String name){
-        Intent intent = new Intent(this, HugActivity.class);
-        intent.putExtra(getString(R.string.key_name), name);
 
-        startActivity(intent);
+    private void showHugs(String name) {
+
+            Intent intent = new Intent(this, HugActivity.class);
+            intent.putExtra(getString(R.string.key_name), name);
+
+            startActivity(intent);
     }
 
     @Override
