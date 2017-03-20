@@ -23,13 +23,13 @@ public class HugActivity extends BaseActivity  {
     private ScrollView mScrollView;
     private TextView mHiText;
     private Toolbar mToolbar;
+    String name;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hug);
-
         initUiElements();
         getDataFromIntent();
         initBoomMenu();
@@ -46,20 +46,22 @@ public class HugActivity extends BaseActivity  {
         mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
     }
 
+
+
     private void getDataFromIntent(){
         Intent intent = getIntent();
 
         // Get Person's name
         if (intent.getStringExtra(getString(R.string.key_name))!=null) {
-            String name = intent.getStringExtra(getString(R.string.key_name));
+            name = intent.getStringExtra(getString(R.string.key_name));
             if (name.isEmpty()) {
                 name = "Anna";
             }
             String hiText = "Hi, " + name + "!";
             mHiText.setText(hiText);
-
+        }
         // Get text of new hug - if added
-        } else if (intent.getStringExtra(getString(R.string.key_new_hug))!=null) {
+        if (intent.getStringExtra(getString(R.string.key_new_hug))!=null) {
             String new_hug = intent.getStringExtra(getString(R.string.key_new_hug));
             mHugTextView.setText(new_hug);
             changeColors();
@@ -102,8 +104,8 @@ public class HugActivity extends BaseActivity  {
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
-
                         Intent intent = new Intent(HugActivity.this, EditActivity.class);
+                        intent.putExtra(getString(R.string.key_name), name);
                         startActivity(intent);
                     }
                 }));
@@ -117,7 +119,6 @@ public class HugActivity extends BaseActivity  {
                 .buttonRadius(Util.dp2px(18))
                 .pieceColorRes(R.color.semi_transparent)
                 .unable(true));
-
     }
 
     private void addListeners(){

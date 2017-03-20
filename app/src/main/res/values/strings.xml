@@ -17,7 +17,7 @@
     <string name="cancel">Cancel</string>
     <string name="add_message">Add a hug!</string>
     <string name="empty_hug">Have you written anything?</string>
-    <string name="hug_hint">You can do this! \nI believe in you \n*hugs*</string>
+    <string name="hug_hint">You can do this, %1$s!\nI believe in you\n*hugs*</string>
     <string-array name="newHug">
         <item>Yay!</item>
         <item>You\'re amazing! ♡</item>

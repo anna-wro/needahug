@@ -23,19 +23,26 @@ public class EditActivity extends BaseActivity {
     EditText mNewHugText;
     Toolbar mToolbar;
     String mNewMessages[];
+    String yourName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
         setSupportActionBar(mToolbar);
-        
+
         mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         mBackButton = (ImageButton) findViewById(R.id.backButton);
         mCancelHugButton = (Button) findViewById(R.id.cancelHugButton);
         mSaveHugButton = (Button) findViewById(R.id.saveHugButton);
         mNewHugText = (EditText) findViewById(R.id.newHugText);
         mNewMessages = getResources().getStringArray(R.array.newHug);
+
+        Intent getName = getIntent();
+        yourName = getName.getStringExtra("name");
+        String hintMessageFormat = getResources().getString(R.string.hug_hint);
+        String hintMessage = String.format(hintMessageFormat, yourName);
+        mNewHugText.setHint(hintMessage);
 
         View.OnClickListener askIfCancel = new View.OnClickListener() {
             @Override
@@ -73,6 +80,7 @@ public class EditActivity extends BaseActivity {
             // Go back to HugActivity
             Intent intent = new Intent(this, HugActivity.class);
             intent.putExtra(getString(R.string.key_new_hug), hug);
+            intent.putExtra(getString(R.string.key_name), yourName);
             startActivity(intent);
         }
     }
