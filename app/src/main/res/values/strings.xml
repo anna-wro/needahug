@@ -5,6 +5,7 @@
     <string name="button_text">Want another hug?</string>
     <string name="button_hugs">* hugs *</string>
     <string name="key_name">name</string>
+    <string name="key_new_hug">new_hug</string>
     <string name="notalone">You\'re not alone</string>
     <string name="question">What\'s your name?</string>
     <string name="share">Share a hug!</string>
@@ -12,8 +13,11 @@
     <string name="save_error">Oops! Something went wrong</string>
     <string name="delete_dialog_msg">Delete last hug?</string>
     <string name="delete">Delete</string>
+    <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="add_message">Add a hug!</string>
+    <string name="empty_hug">Have you written anything?</string>
+    <string name="hug_hint">You can do this! \nI believe in you \n*hugs*</string>
     <string-array name="newHug">
         <item>Yay!</item>
         <item>You\'re amazing! ♡</item>

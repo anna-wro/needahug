@@ -73,7 +73,6 @@ public class StartActivity extends BaseActivity {
 
             Intent intent = new Intent(this, HugActivity.class);
             intent.putExtra(getString(R.string.key_name), name);
-
             startActivity(intent);
     }
 

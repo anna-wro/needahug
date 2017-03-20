@@ -1,44 +1,32 @@
 package pm.anna.needahug;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.Util;
 
-import java.util.Random;
-
-import pm.anna.needahug.data.HugsContract;
 import pm.anna.needahug.data.HugsContract.HugsEntry;
 
-public class HugActivity extends BaseActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class HugActivity extends BaseActivity  {
 
-    private static final int HUGS_LOADER = 0;
-    CursorAdapter mCursorAdapter;
     private TextView mHugTextView;
     private Button mHugButton;
     private RelativeLayout mRelativeLayout;
     private ScrollView mScrollView;
     private TextView mHiText;
     private Toolbar mToolbar;
-    String mNewMessages[];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +34,7 @@ public class HugActivity extends BaseActivity implements LoaderManager.LoaderCal
         setContentView(R.layout.activity_hug);
 
         initUiElements();
-        initPersonName();
+        getData();
         initBoomMenu();
         initToolbar();
         addListeners();
@@ -63,21 +51,26 @@ public class HugActivity extends BaseActivity implements LoaderManager.LoaderCal
     private void initUiElements(){
         mHiText = (TextView) findViewById(R.id.hi);
         mHugTextView = (TextView) findViewById(R.id.hugTextView);
-        mNewMessages = getResources().getStringArray(R.array.newHug);
+
         mHugButton = (Button) findViewById(R.id.showHugButton);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.activity_hug);
         mScrollView = (ScrollView) findViewById(R.id.scroll);
         mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
     }
 
-    private void initPersonName(){
+    private void getData(){
         Intent intent = getIntent();
-        String name = intent.getStringExtra(getString(R.string.key_name));
-        if (name.isEmpty()) {
-            name = "Anna";
+        if (intent.getStringExtra(getString(R.string.key_name))!=null) {
+            String name = intent.getStringExtra(getString(R.string.key_name));
+            if (name.isEmpty()) {
+                name = "Anna";
+            }
+            String hiText = "Hi, " + name + "!";
+            mHiText.setText(hiText);
+        } else if (intent.getStringExtra(getString(R.string.key_new_hug))!=null) {
+            String new_hug = intent.getStringExtra(getString(R.string.key_new_hug));
+            mHugTextView.setText(new_hug);
         }
-        String hiText = "Hi, " + name + "!";
-        mHiText.setText(hiText);
     }
 
     private void initToolbar(){
@@ -151,46 +144,12 @@ public class HugActivity extends BaseActivity implements LoaderManager.LoaderCal
         });
     }
 
-    public void insertHug() {
-        String hug = "";
-        ContentValues values = new ContentValues();
-        values.put(HugsContract.HugsEntry.COLUMN_HUG, hug);
 
-        Uri newUri = getContentResolver().insert(HugsEntry.CONTENT_URI, values);
-        if (newUri == null) {
-            Toast.makeText(this, getString(R.string.save_error), Toast.LENGTH_SHORT).show();
-        } else {
-            Random generator = new Random();
-            int num = generator.nextInt(mNewMessages.length);
-            Toast.makeText(this, mNewMessages[num], Toast.LENGTH_SHORT).show();
-        }
-    }
     private void deleteHug() {
         Cursor c = getContentResolver().query(HugsEntry.CONTENT_URI, null, null, null, null);
         c.moveToLast();
         String dayToDelete = c.getString(c.getColumnIndex(HugsEntry._ID));
         getContentResolver().delete(HugsEntry.CONTENT_URI, HugsEntry._ID + "=?", new String[]{dayToDelete});
-    }
-
-    @Override
-    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        String[] projection = {
-                HugsEntry._ID,
-                HugsEntry.COLUMN_HUG,
-                HugsEntry.COLUMN_FAV,
-        };
-
-        return new CursorLoader(this, HugsEntry.CONTENT_URI, projection, null, null, null);
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        mCursorAdapter.swapCursor(data);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-        mCursorAdapter.swapCursor(null);
     }
 
 }

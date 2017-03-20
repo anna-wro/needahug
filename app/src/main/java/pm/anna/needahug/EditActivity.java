@@ -1,66 +1,79 @@
 package pm.anna.needahug;
 
-import android.graphics.Rect;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
-import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
-import com.nightonke.boommenu.BoomMenuButton;
-import com.nightonke.boommenu.Util;
+import java.util.Random;
+
+import pm.anna.needahug.data.HugsContract;
 
 public class EditActivity extends BaseActivity {
+
+    ImageButton mBackButton;
+    Button mCancelHugButton;
+    Button mSaveHugButton;
+    EditText mNewHugText;
+    Toolbar mToolbar;
+    String mNewMessages[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
 
+        setSupportActionBar(mToolbar);
+        mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        mBackButton = (ImageButton) findViewById(R.id.backButton);
+        mCancelHugButton = (Button) findViewById(R.id.cancelHugButton);
+        mSaveHugButton = (Button) findViewById(R.id.saveHugButton);
+        mNewHugText = (EditText) findViewById(R.id.newHugText);
+        mNewMessages = getResources().getStringArray(R.array.newHug);
 
-        BoomMenuButton bmb = (BoomMenuButton) findViewById(R.id.boom_edit);
-        bmb.addBuilder(new SimpleCircleButton.Builder()
-                .normalImageRes(R.drawable.ic_share_white_48dp)
-                .imageRect(new Rect(8, 12, 42,42))
-                .shadowEffect(false)
-                .rippleEffect(true)
-                .normalColorRes(R.color.dot_transparent)
-                .highlightedColorRes(R.color.dot_click)
-                .unableColorRes(R.color.dot_transparent)
-                .buttonRadius(Util.dp2px(18))
-                .pieceColorRes(R.color.semi_transparent)
-        );
-        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_add_white_48dp)
-                .imageRect(new Rect(6, 6, 48,48))
-                .shadowEffect(false)
-                .rippleEffect(true)
-                .normalColorRes(R.color.dot_transparent)
-                .unableColorRes(R.color.dot_transparent)
-                .highlightedColorRes(R.color.dot_click)
-                .buttonRadius(Util.dp2px(18))
-                .pieceColorRes(R.color.semi_transparent)
-               );
-        bmb.addBuilder(new SimpleCircleButton.Builder().normalImageRes(R.drawable.ic_filter_vintage_white_48dp)
-                .imageRect(new Rect(12, 12, 42,42))
-                .shadowEffect(false)
-                .rippleEffect(true)
-                .normalColorRes(R.color.dot_transparent)
-                .unableColorRes(R.color.dot_transparent)
-                .highlightedColorRes(R.color.dot_click)
-                .buttonRadius(Util.dp2px(18))
-                .pieceColorRes(R.color.semi_transparent)
-                .unable(true));
-        ImageButton backButton = (ImageButton) findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-
+        View.OnClickListener askIfCancel = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 finish();
+            }
+        };
+        mBackButton.setOnClickListener(askIfCancel);
+        mCancelHugButton.setOnClickListener(askIfCancel);
+        mSaveHugButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                insertHug();
             }
         });
     }
 
+    public void insertHug() {
+        String hug = mNewHugText.getText().toString();
+        if(hug == null || hug.trim().isEmpty()){
+            Toast.makeText(this, getString(R.string.empty_hug), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        ContentValues values = new ContentValues();
+        values.put(HugsContract.HugsEntry.COLUMN_HUG, hug);
+        Uri newUri = getContentResolver().insert(HugsContract.HugsEntry.CONTENT_URI, values);
+        if (newUri == null) {
+            Toast.makeText(this, getString(R.string.save_error), Toast.LENGTH_SHORT).show();
+        } else {
+            Random generator = new Random();
+            int num = generator.nextInt(mNewMessages.length);
+            Toast.makeText(this, mNewMessages[num], Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, HugActivity.class);
+            intent.putExtra(getString(R.string.key_new_hug), hug);
+            startActivity(intent);
+        }
+    }
+
 }
+
 

@@ -9,6 +9,7 @@
     <dimen name="padding_top">52dp</dimen>
     <dimen name="padding_normal">36dp</dimen>
     <dimen name="padding_smaller">24dp</dimen>
+    <dimen name="padding_tiny">16dp</dimen>
     <dimen name="font_normal">24sp</dimen>
     <dimen name="font_medium">20sp</dimen>
     <dimen name="font_smaller">16sp</dimen>
