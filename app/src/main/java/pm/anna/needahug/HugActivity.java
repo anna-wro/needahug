@@ -1,7 +1,6 @@
 package pm.anna.needahug;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,8 +14,6 @@ import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.Util;
-
-import pm.anna.needahug.data.HugsContract.HugsEntry;
 
 public class HugActivity extends BaseActivity  {
 
@@ -34,32 +31,25 @@ public class HugActivity extends BaseActivity  {
         setContentView(R.layout.activity_hug);
 
         initUiElements();
-        getData();
+        getDataFromIntent();
         initBoomMenu();
         initToolbar();
         addListeners();
     }
 
-    private void SHARE(){
-        String shareHug = mHugTextView.getText().toString();
-        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareHug);
-        startActivity(Intent.createChooser(sharingIntent,  getResources().getString(R.string.share)));
-    }
-
     private void initUiElements(){
         mHiText = (TextView) findViewById(R.id.hi);
         mHugTextView = (TextView) findViewById(R.id.hugTextView);
-
         mHugButton = (Button) findViewById(R.id.showHugButton);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.activity_hug);
         mScrollView = (ScrollView) findViewById(R.id.scroll);
         mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
     }
 
-    private void getData(){
+    private void getDataFromIntent(){
         Intent intent = getIntent();
+
+        // Get Person's name
         if (intent.getStringExtra(getString(R.string.key_name))!=null) {
             String name = intent.getStringExtra(getString(R.string.key_name));
             if (name.isEmpty()) {
@@ -67,9 +57,12 @@ public class HugActivity extends BaseActivity  {
             }
             String hiText = "Hi, " + name + "!";
             mHiText.setText(hiText);
+
+        // Get text of new hug - if added
         } else if (intent.getStringExtra(getString(R.string.key_new_hug))!=null) {
             String new_hug = intent.getStringExtra(getString(R.string.key_new_hug));
             mHugTextView.setText(new_hug);
+            changeColors();
         }
     }
 
@@ -128,28 +121,30 @@ public class HugActivity extends BaseActivity  {
     }
 
     private void addListeners(){
-        final ColorWheel mColorWheel = new ColorWheel(HugActivity.this);
-        final AllHugs mAllHugs = new AllHugs(HugActivity.this);
+              final AllHugs mAllHugs = new AllHugs(HugActivity.this);
 
         mHugButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String hugs = mAllHugs.getHug();
-                int color = mColorWheel.getColor();
                 mHugTextView.setText(hugs);
-                mScrollView.setBackgroundColor(color);
-                mRelativeLayout.setBackgroundColor(color);
-                mHugButton.setTextColor(color);
+                changeColors();
             }
         });
     }
-
-
-    private void deleteHug() {
-        Cursor c = getContentResolver().query(HugsEntry.CONTENT_URI, null, null, null, null);
-        c.moveToLast();
-        String dayToDelete = c.getString(c.getColumnIndex(HugsEntry._ID));
-        getContentResolver().delete(HugsEntry.CONTENT_URI, HugsEntry._ID + "=?", new String[]{dayToDelete});
+    private void changeColors(){
+        final ColorWheel mColorWheel = new ColorWheel(HugActivity.this);
+        int color = mColorWheel.getColor();
+        mScrollView.setBackgroundColor(color);
+        mRelativeLayout.setBackgroundColor(color);
+        mHugButton.setTextColor(color);
     }
 
+    private void SHARE(){
+        String shareHug = mHugTextView.getText().toString();
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareHug);
+        startActivity(Intent.createChooser(sharingIntent,  getResources().getString(R.string.share)));
+    }
 }

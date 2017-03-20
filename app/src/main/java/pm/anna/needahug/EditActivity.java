@@ -28,8 +28,8 @@ public class EditActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-
         setSupportActionBar(mToolbar);
+        
         mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         mBackButton = (ImageButton) findViewById(R.id.backButton);
         mCancelHugButton = (Button) findViewById(R.id.cancelHugButton);
@@ -65,15 +65,17 @@ public class EditActivity extends BaseActivity {
         if (newUri == null) {
             Toast.makeText(this, getString(R.string.save_error), Toast.LENGTH_SHORT).show();
         } else {
+            // Show random message
             Random generator = new Random();
             int num = generator.nextInt(mNewMessages.length);
             Toast.makeText(this, mNewMessages[num], Toast.LENGTH_SHORT).show();
+
+            // Go back to HugActivity
             Intent intent = new Intent(this, HugActivity.class);
             intent.putExtra(getString(R.string.key_new_hug), hug);
             startActivity(intent);
         }
     }
-
 }
 
 
