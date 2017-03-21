@@ -28,39 +28,48 @@ public class EditActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit);
-        setSupportActionBar(mToolbar);
+        initUiElements();
+        getDataFromIntent();
+        addListeners();
+    }
 
+    private void initUiElements(){
+        setContentView(R.layout.activity_edit);
         mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         mBackButton = (ImageButton) findViewById(R.id.backButton);
         mCancelHugButton = (Button) findViewById(R.id.cancelHugButton);
         mSaveHugButton = (Button) findViewById(R.id.saveHugButton);
         mNewHugText = (EditText) findViewById(R.id.newHugText);
         mNewMessages = getResources().getStringArray(R.array.newHug);
+        setSupportActionBar(mToolbar);
+    }
 
+    private void getDataFromIntent(){
         Intent getName = getIntent();
         yourName = getName.getStringExtra("name");
-        String hintMessageFormat = getResources().getString(R.string.hug_hint);
-        String hintMessage = String.format(hintMessageFormat, yourName);
+        String hintMessageToFormat = getResources().getString(R.string.hug_hint);
+        String hintMessage = String.format(hintMessageToFormat, yourName);
         mNewHugText.setHint(hintMessage);
+    }
 
+    private void addListeners(){
         View.OnClickListener askIfCancel = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         };
-        mBackButton.setOnClickListener(askIfCancel);
-        mCancelHugButton.setOnClickListener(askIfCancel);
         mSaveHugButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 insertHug();
             }
         });
+        mBackButton.setOnClickListener(askIfCancel);
+        mCancelHugButton.setOnClickListener(askIfCancel);
     }
 
-    public void insertHug() {
+    private void insertHug() {
         String hug = mNewHugText.getText().toString();
         if(hug == null || hug.trim().isEmpty()){
             Toast.makeText(this, getString(R.string.empty_hug), Toast.LENGTH_SHORT).show();

@@ -29,7 +29,6 @@ public class HugActivity extends BaseActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hug);
         initUiElements();
         getDataFromIntent();
         initBoomMenu();
@@ -38,6 +37,7 @@ public class HugActivity extends BaseActivity  {
     }
 
     private void initUiElements(){
+        setContentView(R.layout.activity_hug);
         mHiText = (TextView) findViewById(R.id.hi);
         mHugTextView = (TextView) findViewById(R.id.hugTextView);
         mHugButton = (Button) findViewById(R.id.showHugButton);
@@ -45,8 +45,6 @@ public class HugActivity extends BaseActivity  {
         mScrollView = (ScrollView) findViewById(R.id.scroll);
         mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
     }
-
-
 
     private void getDataFromIntent(){
         Intent intent = getIntent();
@@ -57,9 +55,11 @@ public class HugActivity extends BaseActivity  {
             if (name.isEmpty()) {
                 name = "Anna";
             }
-            String hiText = "Hi, " + name + "!";
-            mHiText.setText(hiText);
+            String hiText = getResources().getString(R.string.hi_message);
+            String hiMessage = String.format(hiText, name);
+            mHiText.setText(hiMessage);
         }
+
         // Get text of new hug - if added
         if (intent.getStringExtra(getString(R.string.key_new_hug))!=null) {
             String new_hug = intent.getStringExtra(getString(R.string.key_new_hug));
@@ -133,6 +133,7 @@ public class HugActivity extends BaseActivity  {
             }
         });
     }
+
     private void changeColors(){
         final ColorWheel mColorWheel = new ColorWheel(HugActivity.this);
         int color = mColorWheel.getColor();
