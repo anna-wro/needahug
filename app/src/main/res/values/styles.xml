@@ -160,6 +160,11 @@
         <item name="android:textSize">@dimen/font_medium</item>
     </style>
 
+    <style name="dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@drawable/cancel</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
     <style name="editButton" parent="standardSize">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:background">@color/transparent</item>

@@ -1,9 +1,13 @@
 package pm.anna.needahug;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +18,8 @@ import android.widget.Toast;
 import java.util.Random;
 
 import pm.anna.needahug.data.HugsContract;
+
+import static pm.anna.needahug.R.style.dialog;
 
 public class EditActivity extends BaseActivity {
 
@@ -56,7 +62,12 @@ public class EditActivity extends BaseActivity {
         View.OnClickListener askIfCancel = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                String hug = mNewHugText.getText().toString();
+                if(!hug.trim().isEmpty()){
+                    showCancelConfirmationDialog();
+                } else {
+                    finish();
+                }
             }
         };
         mSaveHugButton.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +78,33 @@ public class EditActivity extends BaseActivity {
         });
         mBackButton.setOnClickListener(askIfCancel);
         mCancelHugButton.setOnClickListener(askIfCancel);
+    }
+
+    private void showCancelConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, dialog);
+        builder.setMessage(R.string.cancel_dialog_msg);
+
+        builder.setPositiveButton(R.string.go_back, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                finish();
+            }
+        });
+        builder.setNegativeButton(R.string.keep_editing, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+        negativeButton.setTextColor(getResources().getColor(R.color.green));
+
+        Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        positiveButton.setTextColor(getResources().getColor(R.color.red));
     }
 
     private void insertHug() {
