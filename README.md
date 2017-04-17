@@ -1,4 +1,4 @@
-# Need a hug? ![Minimum API](https://img.shields.io/badge/min%20API-15-blue.svg) ![Makes people smile](https://img.shields.io/badge/makes%20people-smile-green.svg)
+# Need a hug? ![Minimum API](https://img.shields.io/badge/min.%20API%20level-15-blue.svg) ![Makes people smile](https://img.shields.io/badge/makes%20people-smile-green.svg)
 
 An app that gives you *a virtual hug* every time you click on the button.
 
